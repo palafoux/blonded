@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blonded.lol</title>
+    <meta property="og:title" content="blonded.lol">
+    <meta name="og:description" content="##ery">
+    <meta name="theme-color" content="#303135">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: black;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .title {
+            font-size: 64px;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #ffff;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+        .icon-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .icon {
+            margin: 0 5px;
+            font-size: 60px;
+            color: #fff;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .icon:hover {
+            transform: scale(1.2);
+            color: #ffff;
+        }
+        .icon:hover i {
+            color: #ffff;
+        }
+        .username {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+            width: 120px;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ffff;
+            }
+            to {
+                text-shadow: 0 0 20px #ffff;
+            }
+        }
+        #enter-portal {
+            color: white;
+            font-size: 48px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-shadow: 0 0 10px white;
+            animation: glow 1s ease-in-out infinite alternate;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        #enter-portal:hover {
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px white;
+            }
+            to {
+                text-shadow: 0 0 20px white;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="enter-portal" onclick="enterPortal()">clk to entr</div>
+    <script>
+        function enterPortal() {
+            const audio = new Audio('money.mp3')
+            audio.loop = true;
+            audio.play();
+            audio.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            document.getElementById('enter-portal').style.display = "none";
+            document.getElementById('body-div').style.display = "block";
+        }
+    </script>
+    <div id="body-div" style="display: none;">
+        <div class="container">
+            <div class="title">
+                <span id="typing"></span><span id="cursor"></span>
+            </div>
+            <div class="icon-container">
+                <a class="icon" href="https://github.com/palafoux">
+                    <i class="fab fa-github"></i>
+                    <div class="username"></div>
+                </a>
+                <a class="icon" href="https://www.tiktok.com/@iflookskankill">
+                    <i class="fab fa-tiktok"></i>
+                    <div class="username"></div>
+                </a>
+                <a class="icon" href="https://www.instagram.com/pa7ox/">
+                    <i class="fab fa-instagram"></i>
+                    <div class="username"></div>
+                </a>
+                <a class="icon" href="https://discord.gg/skateboard">
+                    <i class="fab fa-discord"></i>
+                    <div class="username"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const typing = document.getElementById('typing');
+        const cursor = document.getElementById('cursor');
+        const text = "ery#0001";
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typing.textContent = text.slice(0, index + 1);
+                index++;
+            } else {
+                index = 0;
+            }
+        }
+
+        setInterval(type, 200);
+
+    </script>
+</body>
+</html>
